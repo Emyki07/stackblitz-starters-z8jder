@@ -1,0 +1,24 @@
+<form (ngSubmit)="onSubmit()">
+<label for="nome">Nome:</label>
+<input id="nome" [(ngModel)]="person.nome" name="nome" required />
+
+<label for="perfil">Perfil:</label>
+<input id="perfil" [(ngModel)]="person.perfil" name="perfil" required />
+
+<label for="idade">Idade:</label>
+<input id="idade" type="number" [(ngModel)]="person.idade" name="idade" required />
+
+<label for="email">E-mail:</label>
+<input id="email" [(ngModel)]="person.email" name="email" required />
+
+<label for="ativo">Ativo:</label>
+<input id="ativo" type="checkbox" [(ngModel)]="person.ativo" name="ativo" />
+
+<label for="pais">País:</label>
+<input id="pais" [(ngModel)]="person.pais" name="pais" required />
+
+<label for="nivelExperiencia">Nível de Experiência:</label>
+<input id="nivelExperiencia" [(ngModel)]="person.nivelExperiencia" name="nivelExperiencia" required />
+
+<button type="submit">Salvar</button>
+</form>

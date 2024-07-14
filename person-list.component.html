@@ -1,0 +1,63 @@
+<table>
+<thead>
+  <tr>
+    <th>ID</th>
+    <th>Nome</th>
+    <th>Perfil</th>
+    <th>Idade</th>
+    <th>E-mail</th>
+    <th>Ativo</th>
+    <th>País</th>
+    <th>Nível de Experiência</th>
+    <th>Ações</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let person of people">
+    <td>{{ person.id }}</td>
+    <td>{{ person.nome }}</td>
+    <td>{{ person.perfil }}</td>
+    <td>{{ person.idade }}</td>
+    <td>{{ person.email }}</td>
+    <td>{{ person.ativo }}</td>
+    <td>{{ person.pais }}</td>
+    <td>{{ person.nivelExperiencia }}</td>
+    <td>
+      <button (click)="editPerson(person.id)">Editar</button>
+      <button (click)="confirmDelete(person.id)">Excluir</button>
+    </td>
+  </tr>
+</tbody>
+</table>
+import { Component, OnInit } from '@angular/core';
+import { PersonService } from '../person.service';
+import { Person } from '../person.model';
+
+@Component({
+  selector: 'app-person-list',
+  templateUrl: './person-list.component.html',
+  styleUrls: ['./person-list.component.css']
+})
+export class PersonListComponent implements OnInit {
+  people: Person[] = [];
+
+  constructor(private personService: PersonService) {}
+
+  ngOnInit(): void {
+    this.personService.getAll().subscribe(data => {
+      this.people = data;
+    });
+  }
+
+  editPerson(id: number): void {
+    // Implement navigation to edit page
+  }
+
+  confirmDelete(id: number): void {
+    if (confirm('Tem certeza que deseja excluir esta pessoa?')) {
+      this.personService.delete(id).subscribe(() => {
+        this.people = this.people.filter(person => person.id !== id);
+      });
+    }
+  }
+}

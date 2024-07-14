@@ -1,0 +1,4 @@
+ng generate service person
+ng generate component person-list
+ng generate component person-form
+ng generate component person-edit
