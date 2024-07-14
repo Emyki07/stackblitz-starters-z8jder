@@ -1,3 +1,9 @@
-# stackblitz-starters-z8jder
+O projeto Angular consiste em:
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/Emyki07/stackblitz-starters-z8jder)
+Serviço (PersonService): Responsável por fazer requisições HTTP para a API RESTful.
+Modelo (Person): Interface que define a estrutura de uma pessoa.
+Componentes:
+PersonListComponent: Exibe a lista de pessoas em uma tabela.
+PersonFormComponent: Formulário para cadastrar uma nova pessoa.
+PersonEditComponent: Formulário para editar uma pessoa existente.
+Roteamento: Define as rotas para os componentes de listagem, cadastro e edição.
